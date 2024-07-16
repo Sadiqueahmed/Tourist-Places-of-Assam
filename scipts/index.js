@@ -50,6 +50,17 @@ var swiper = new Swiper(".home-slider", {
     },
 });
 
+function scrollToNextSection() {
+    const currentSection = document.activeElement.closest('section');
+    const nextSection = currentSection.nextElementSibling;
+  
+    if (nextSection) {
+      nextSection.scrollIntoView();
+    }
+  }
+
+
+
 
 var swiper = new Swiper(".review-slider", {
     loop:true, 
@@ -251,3 +262,5 @@ swiper.on('slideChangeTransitionEnd', function () {
     bg.style.height = height + 'px';
     bg.style.transform = 'translateX(' + x + 'px ) translateY(' + y + 'px)';
 });
+
+
