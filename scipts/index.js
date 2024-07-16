@@ -50,6 +50,17 @@ var swiper = new Swiper(".home-slider", {
     },
 });
 
+function scrollToNextSection() {
+    const currentSection = document.activeElement.closest('section');
+    const nextSection = currentSection.nextElementSibling;
+  
+    if (nextSection) {
+      nextSection.scrollIntoView();
+    }
+  }
+
+
+
 
 
 
