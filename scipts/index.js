@@ -269,3 +269,63 @@ swiper.on('slideChangeTransitionEnd', function () {
 });
 
 
+
+let baseUrl = `https://cw-wwbackend.onrender.com`;
+
+let citiesUrl = `${baseUrl}/cities`;
+
+let mainSection = document.querySelector("#ln-location-cards");
+
+let citiesData = [];
+
+let searchInp = document.querySelector("#ln-city-search");
+
+//search functionality
+searchInp.addEventListener("input", (e) => {
+  
+  let str = searchInp.value.toLowerCase();
+  let newData = citiesData.filter((ele) => {
+    if(ele.city.toLowerCase().includes(str)) {
+      return ele;
+    }
+  })
+
+  mainSection.innerHTML = "";
+  appendData(newData);
+})
+
+//sort functionality
+let sortByName = document.querySelector("#ln-city-sort");
+sortByName.addEventListener("change", (e) => {
+  let str = sortByName.value;
+
+  if(str === "") {
+    appendData(citiesData);
+  }   
+  else {
+    if(str === "atoz") {
+      let sortedData = citiesData.sort((a,b) => {
+        if(b.city > a.city) {
+          return -1
+        }
+        else {
+          return 1;
+        }
+      });
+      appendData(sortedData);
+    }
+    else if(str === "ztoa") {
+      let sortedData = citiesData.sort((a,b) => {
+        if(a.city > b.city) {
+          return -1
+        }
+        else {
+          return 1;
+        }
+      });
+      appendData(sortedData);
+    }
+  }
+})
+
+
