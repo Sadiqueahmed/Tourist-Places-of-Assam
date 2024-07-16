@@ -38,6 +38,8 @@ window.onload = () =>{
 };
 
 
+
+
 var swiper = new Swiper(".home-slider", {
     autoplay: {
     delay: 5000,
@@ -58,7 +60,6 @@ function scrollToNextSection() {
       nextSection.scrollIntoView();
     }
   }
-
 
 
 
