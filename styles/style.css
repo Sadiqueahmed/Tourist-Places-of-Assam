@@ -125,7 +125,7 @@ section {
 .header .navbar a {
   text-decoration: none;
   margin-left: 2rem;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   color: #10221b;
 }
 
@@ -249,7 +249,7 @@ section {
 }
 
 .home .box {
-  min-height: 100vh;
+  min-height: 120vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -292,14 +292,14 @@ section {
 .home .box .content p {
   line-height: 2;
   color: #10221b;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   padding: 1rem 0;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 3rem;
-  color: #10221b;
+  color: #cfe8de;
 }
 
 
@@ -1256,12 +1256,21 @@ a .news__item:hover {
 
 
 .footer {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/ftr2.jpg) no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/ftr2.jpg) no-repeat;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(assets/Images/image35.jpg) no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/Images/image35.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
+
+/* .footer {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) ;
+  background: url(assets/Images/image35.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+} */
 
 .footer .box-container {
   display: -ms-grid;
