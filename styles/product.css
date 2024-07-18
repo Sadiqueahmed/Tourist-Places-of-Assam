@@ -226,7 +226,7 @@ section {
 .banner-area {
     height: 60vh;
     width: 100%;
-    background: linear-gradient( #1c1a2521, #000000ab),url(/assets/Images/set-wood-stubs-cup-tea-tea-herbs-bowls-dark-textured-background-flat-lay_176474-5213.avif) no-repeat;
+    background: linear-gradient( #1c1a2521, #000000ab),url(../assets/Images/set-wood-stubs-cup-tea-tea-herbs-bowls-dark-textured-background-flat-lay_176474-5213.avif) no-repeat;
     /* background-color: #eee; */
     background-attachment: fixed;
     background-position: center center;
