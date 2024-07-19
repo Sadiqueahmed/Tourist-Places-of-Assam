@@ -1399,6 +1399,21 @@ a .news__item:hover {
   cursor: pointer;
 }
 
+@media screen and (min-width: 1200px) {
+  .card-description {
+      bottom: -100px;
+  }
+
+  .card-image:hover ~.card-description,
+  .card-description:hover
+   {
+      bottom: 0;
+  }
+
+  .card-container:hover > .card-image > img {
+      transform: scale(1.2);
+  }
+}
 
 /* .footer {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/ftr2.jpg) no-repeat;
