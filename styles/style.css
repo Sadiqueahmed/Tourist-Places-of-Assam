@@ -52,7 +52,8 @@ section {
   font-size: 1.7rem;
   padding: 1rem 3rem;
   /* filter: blur(1px); */
-  background: rgba(121, 161, 152, 0.447);
+  background: rgba(245, 247, 246, 0.447);
+  /* background: rgba(121, 161, 152, 0.447); */
 }
 
 .hbtn:hover {
@@ -336,7 +337,7 @@ section {
 }
 
 #popheader {
-  font-size: 2rem;
+  font-size: 3rem;
   width: 300px;
 }
 
