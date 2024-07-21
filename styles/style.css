@@ -1502,7 +1502,8 @@ a .news__item:hover {
 
 
 
-/* Scroll to top */
+/* ------------------scroller to top css------------------------------------ */
+
 
 .to-top {
   background: rgb(22, 21, 25);
@@ -1522,7 +1523,7 @@ a .news__item:hover {
   opacity:0;
   pointer-events: none;
   transition: all .4s;
-  z-index: 10;
+  cursor: pointer;
 }
 
 .to-top.active {
@@ -1530,7 +1531,6 @@ a .news__item:hover {
   pointer-events: auto;
   opacity:1;
 }
-
 
 
 
