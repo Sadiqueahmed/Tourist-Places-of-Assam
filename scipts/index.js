@@ -132,7 +132,17 @@ var swiper = new Swiper(".clients-slider", {
 
 
 
+// -------------------------------------------to top scroller------------------------------------
 
+const toTop = document.querySelector(".to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 100) {
+    toTop.classList.add("active");
+  } else {
+    toTop.classList.remove("active");
+  }
+})
 
 
 
@@ -334,12 +344,12 @@ sortByName.addEventListener("change", (e) => {
 
 // -------------------------------------------to top scroller------------------------------------
 
-const toTop = document.querySelector(".to-top");
+// const toTop = document.querySelector(".to-top");
 
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 100) {
-    toTop.classList.add("active");
-  } else {
-    toTop.classList.remove("active");
-  }
-})
+// window.addEventListener("scroll", () => {
+//   if (window.pageYOffset > 100) {
+//     toTop.classList.add("active");
+//   } else {
+//     toTop.classList.remove("active");
+//   }
+// })
