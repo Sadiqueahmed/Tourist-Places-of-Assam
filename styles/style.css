@@ -379,12 +379,16 @@ section {
   transition: bottom 200ms ease-in-out;
 }
 
+
 .title {
   font-weight: bold;
 }
 
 .stars {
   color: gold;
+}
+.stars.fa-xs{
+  width: 10px;
 }
 
 .location, .duration, .card-bookmark > button {
