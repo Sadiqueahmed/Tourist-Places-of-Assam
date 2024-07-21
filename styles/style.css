@@ -406,6 +406,21 @@ section {
   cursor: pointer;
 }
 
+@media screen and (min-width: 1200px) {
+  .card-description {
+      bottom: -100px;
+  }
+
+  .card-image:hover ~.card-description,
+  .card-description:hover
+   {
+      bottom: 0;
+  }
+
+  .card-container:hover > .card-image > img {
+      transform: scale(1.2);
+  }
+}
 
 
 
@@ -1302,119 +1317,6 @@ a .news__item:hover {
 
 
 
-/* popular section */
-#popular {
-  padding: 100px 10px;
-  display: grid;
-  flex-wrap: wrap;
-  width: fit-content;
-  margin: 0 auto;
-  gap: 30px;
-}
-
-@media screen and (min-width: 1200px) {
-  #popular {
-      grid-template-columns: repeat(3,1fr);
-      grid-template-rows: repeat(2,1fr);
-      
-  }
-
-  #long-card {
-      grid-row-start: 1;
-      grid-row-end: 3;
-      grid-column-start: 2;
-      grid-column-end: 3;
-  }
-
-  
-}
-
-#popheader {
-  font-size: 3rem;
-  width: 300px;
-}
-
-.card-container {
-  position: relative;
-  width: 300px;
-  overflow: hidden;
-  /* height: 100%; */
-  min-height: 300px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 15px;
-}
-
-
-.card-image {
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-image img {
-  height: 100%;
-  transition: transform 300ms ease-in-out;
-}
-
-.card-description {
-  position: absolute;
-  z-index: 1;
-  bottom: 0px;
-  background-color: #fff;
-  padding: 10px 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 100%;
-  row-gap: 10px;
-  transition: bottom 200ms ease-in-out;
-}
-
-.title {
-  font-weight: bold;
-}
-
-.stars {
-  color: gold;
-}
-
-.location, .duration, .card-bookmark > button {
-  color: #6d6d6d;
-}
-
-.card-bookmark {
-  position: absolute;
-  top: 10px; 
-  right: 10px;
-  z-index: 2;
-}
-
-.card-bookmark > button {
-  background-color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-@media screen and (min-width: 1200px) {
-  .card-description {
-      bottom: -100px;
-  }
-
-  .card-image:hover ~.card-description,
-  .card-description:hover
-   {
-      bottom: 0;
-  }
-
-  .card-container:hover > .card-image > img {
-      transform: scale(1.2);
-  }
-}
 
 /* .footer {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/ftr2.jpg) no-repeat;
