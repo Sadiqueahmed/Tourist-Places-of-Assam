@@ -308,6 +308,47 @@ section {
 
 
 
+/* #hero-socials {
+  position: absolute;
+  height: fit-content;
+  width: 59px;
+  background-color: rgba(255, 255, 255, 0.2);
+  right: 0;
+  border-radius: 35px 0 0 35px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero-socials a {
+  color: #fff;
+}
+
+.socialmediaicon {
+  padding: 20px 0;
+  font-size: 1.5rem;
+}
+
+.socialmediaicon:nth-child(2) {
+  border-top: 1px solid #fff;  
+  border-bottom: 1px solid #fff;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+  #hero-socials, #blogroll {
+      display: none;
+  }
+} */
+
+
+
+
+
 
 /* popular section */
 #popular {
