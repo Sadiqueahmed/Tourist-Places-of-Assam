@@ -751,7 +751,7 @@ body {
     .blur {
         height: 630px;
     }
-    .main .jaffna {
+    /* .main .jaffna {
         position: absolute;
         top: 15px;
         right: 70%;
@@ -781,9 +781,9 @@ body {
 
     .main .colombo {
     position: absolute;
-    top: 300px;
+    top: 112px;
     right: 77%;
-    left: 23%;
+    left: 25%;
     }
 
     .main .katharagama {
@@ -805,7 +805,7 @@ body {
     top: 130px;
     right: 61%;
     left: 39%;
-    }
+    } */
 }
 
 
@@ -832,55 +832,69 @@ body {
 
 .main .kandy {
     position: absolute;
-    top: 350px;
+    top: 330px;
     
     right: 52%;
-    left: 48%;
+    left: 50%;
    
+}
+
+/* .main .jaffna{
+  position: absolute;
+        top: 150px;
+        right: 70%;
+        left: 30%;
+} */
+
+.main .Diphu {
+  position: absolute;
+    top: 140px;
+    right: 65%;
+    left: 86%;
 }
 
 
 
 .main .trinco {
     position: absolute;
-    top: 307px;
+    top: 218px;
     right: 50%;
-    left: 60%;
+    left: 68%;
 }
 
 .main .galle {
     position: absolute;
-    top: 570px;
-    right: 68%;
-    left: 32%;
+    top: 218px;
+    right: 50%;
+    left: 62%;
 }
 
 .main .colombo {
     position: absolute;
-    top: 425px;
+    top: 270px;
     right: 77%;
-    left: 23%;
+    left: 27%;
 }
 
 .main .katharagama {
     position: absolute;
-    top: 510px;
-    right: 40%;
-    left: 60%;
+    top: 150px;
+    right: 60%;
+    left: 80%;
 }
 
 .main .nuwaraeliya {
     position: absolute;
-    top: 400px;
-    right: 48%;
-    left: 52%;
+    top: 185px;
+    right: 50%;
+    left: 68%;
 }
 
 .main .anuradhapura {
     position: absolute;
-    top: 197px;
+    top: 238px;
     right: 61%;
-    left: 39%;
+    left: 16%;
 }
 
 
@@ -899,7 +913,7 @@ body {
     right: 25vw; */
     width: 700px;
     height: 600px;
-    background: url(../assets/Images/assam-map.jpg);
+    background: url(../assets/Images/map-state-india_97886-4539.jpg);
     background-position: center center;
     background-size: cover;
     border-radius: 15px;
@@ -923,12 +937,7 @@ body {
     height: 30px;
 }
 
-.main .Diphu {
-    position: absolute;
-    top: 30px;
-    right: 70%;
-    left: 30%;
-}
+
 
 
 
@@ -939,7 +948,7 @@ body {
 .blur {
     width: 100vw;
     height: 750px;
-    background: url(../assets/Images/assam\ map\ banner.jpg);
+    background: url(../assets/Images/green-tea-bud-leaves-green-tea-plantations-morning.jpg);
     
 }
 
