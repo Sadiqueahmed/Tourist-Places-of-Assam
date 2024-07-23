@@ -586,6 +586,12 @@ body {
     background: #234f6d;
     background: linear-gradient(0deg, rgba(35, 79, 109, 0) 0%, #455f7100 100%);
   }
+  /* .card .data .Econtent {
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+    transform: translateY(14px);
+  } */
   
   
   @media (max-width: 768px) {
