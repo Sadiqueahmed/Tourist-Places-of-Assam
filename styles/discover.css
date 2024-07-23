@@ -830,13 +830,21 @@ body {
 100% { transform: translate(1px, 1px) rotate(-1deg); }
 }
 
-.main .kandy {
+.main .Dima-Hasao {
     position: absolute;
     top: 330px;
     
     right: 52%;
     left: 50%;
    
+}
+
+.main .Karbi-Anglong {
+  position: absolute;
+  top: 260px;
+  right: 52%;
+  left: 56%;
+ 
 }
 
 /* .main .jaffna{
@@ -846,7 +854,7 @@ body {
         left: 30%;
 } */
 
-.main .Diphu {
+.main .Tinsukia {
   position: absolute;
     top: 140px;
     right: 65%;
@@ -855,35 +863,35 @@ body {
 
 
 
-.main .trinco {
+.main .Jorhat {
     position: absolute;
     top: 212px;
     right: 50%;
     left: 68%;
 }
 
-.main .galle {
+.main .Golaghat {
     position: absolute;
     top: 218px;
     right: 50%;
     left: 62%;
 }
 
-.main .colombo {
+.main .Kamrupa {
     position: absolute;
     top: 270px;
     right: 77%;
     left: 27%;
 }
 
-.main .katharagama {
+.main .Morigaon {
     position: absolute;
-    top: 150px;
-    right: 60%;
-    left: 80%;
+    top: 248px;
+    right: 77%;
+    left: 40%;
 }
 
-.main .nuwaraeliya {
+.main .Majuli {
     position: absolute;
     top: 185px;
     right: 50%;
