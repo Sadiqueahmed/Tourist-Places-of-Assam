@@ -143,3 +143,20 @@ body{
     background: #ababab;
     color: #fff;
 }
+
+
+
+
+/* ---------------------banner css */
+
+.banner-area {
+    height: 60vh;
+    width: 100%;
+    background: linear-gradient( #1c1a2521, #000000ab),url(../assets/Images/festival-banner.jpg) no-repeat;
+    /* background-color: #eee; */
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover; 
+}
+
+/* ---------------------banner css ends ---------------------*/
