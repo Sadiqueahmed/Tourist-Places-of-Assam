@@ -226,7 +226,7 @@ section {
 
 *{
     margin: 0;
-    padding: 0;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -375,12 +375,14 @@ body{
 .banner {
     height: 75vh;
     width: 100%;
+    padding: 5%;
   }
   
   
   .banner img {
     height : 100%;
     width: 100%;
+    padding: 10px;
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
@@ -414,5 +416,72 @@ body{
       }
 
 
+
+
+      .details{
+        padding: 10px 50px ;
+        padding-top: 20%;
+      }
+
+
+
+
+      .footer {
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/Images/image38.jpg) no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/Images/image38.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    
+    .footer .box-container {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+          grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      gap: 1.5rem;
+      
+    }
+    
+    .footer .box-container .box h3 {
+      font-size: 2rem;
+      padding: 1.5rem 0;
+      color: #fff;
+      
+    }
+    
+    .footer .box-container .box a {
+      display: block;
+      font-size: 1.4rem;
+      color: #fff;
+      padding: 1rem 0;
+      text-decoration: none;
+    }
+    
+    .footer .box-container .box a i {
+      color: #219150;
+      padding-right: .5rem;
+    }
+    
+    .footer .box-container .box a:hover {
+      color: #219150;
+    }
+    
+    .footer .box-container .box a:hover i {
+      padding-right: 2rem;
+    }
+    
+    .footer .credit {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 1rem;
+      padding-top: 2.5rem;
+      font-size: 2rem;
+      color: #fff;
+    }
+    
+    .footer .credit span {
+      color: #219150;
+    }
 
     
