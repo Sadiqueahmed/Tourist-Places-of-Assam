@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
-
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -12,6 +11,8 @@
     text-transform: capitalize;
     -webkit-transition: .2s linear;
     transition: .2s linear;
+    text-rendering: optimizeLegibility;
+    font-weight: initial;
 }
   
 html {
@@ -38,9 +39,7 @@ section {
   }
 
 
-
-
-  .btn {
+.btn {
     margin-top: 1rem;
     display: inline-block;
     border: 0.2rem solid #10221b;
@@ -222,6 +221,7 @@ section {
   
 
 /* ----------------------------------------------------------------    header css ends ---------     */
+
 
 
 *{
