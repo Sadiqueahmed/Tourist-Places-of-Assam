@@ -559,7 +559,7 @@ body {
   }
   .card.card-has-bg:hover .card-img-overlay {
     transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    background: #234f6d;
+    background: #f3f4f5;
     background: linear-gradient(0deg, rgba(4, 68, 114, 0) 0%, #04447200 100%);
   }
   .card .card-footer {
@@ -585,15 +585,35 @@ body {
   }
   .card .card-img-overlay {
     transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    background: #234f6d;
+    background: #f3f4f5;
     background: linear-gradient(0deg, rgba(35, 79, 109, 0) 0%, #455f7100 100%);
   }
-  /* .card .data .Econtent {
-    padding: 1em;
+  
+
+  .card :hover .data {
+    transform: translateY(0);
+  }
+  .card .data {
+    position: absolute;
+    bottom: 10px;
+    left: 70%;
+    right: 40%;
+    width: 100%;
+    transform: translateY(calc(70px + 1em));
+    transition: transform 0.3s;
+  }
+  .card .data .Econtent {
+    padding: 3em;
     position: relative;
     z-index: 1;
     transform: translateY(14px);
-  } */
+  }
+  .card input[type=checkbox] {
+    display: none;
+  }
+  .card input[type=checkbox]:checked + .menu-content {
+    transform: translateY(-60px);
+  }
   
   
   @media (max-width: 768px) {
