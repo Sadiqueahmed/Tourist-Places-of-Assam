@@ -373,47 +373,18 @@ body{
 
 
 .banner {
-    height: 90vh;
     width: 100%;
-    padding: 5%;
+    height: 80vh;
   }
   
   
   .banner img {
     height : 100%;
     width: 100%;
-    /* padding: 10px; */
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
     }
-  
-
-    .banner .content {
-        width: 50rem;
-      }
-      
-      .banner .content span {
-        font-family: 'Bebas Neue', cursive;
-        font-size: 60px;
-        color: #10221b;
-      }
-      
-      .banner .content h3 {
-        font-family: 'Bebas Neue', cursive;
-        font-size: 10rem;
-        /* color: #219150; */
-        color: white;
-        padding-top: .5rem;
-        /* text-transform: uppercase; */
-      }
-      
-      .banner  .content p {
-        line-height: 2;
-        color: #10221b;
-        font-size: 1.5rem;
-        padding: 1rem 0;
-      }
 
 
 
