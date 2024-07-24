@@ -1773,3 +1773,11 @@ a .news__item:hover {
 
 
 /*# sourceMappingURL=style.css.map */
+
+
+.video-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
