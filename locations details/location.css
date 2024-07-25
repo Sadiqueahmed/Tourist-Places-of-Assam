@@ -423,7 +423,7 @@ body{
       }
 
       .details h1 {
-        font-size: 45px;
+        font-size: 48px;
         font-weight: 800;
         line-height: 100px;
         color: var(--black);
@@ -480,8 +480,8 @@ body{
 }
 
 .section__description {
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 1rem;
@@ -581,7 +581,7 @@ p {
 
 /* OPERATIONS */
 .operations {
-  max-width: 100rem;
+  max-width: 120rem;
   margin: 12rem auto 0 auto;
 
   background-color: #fff;
