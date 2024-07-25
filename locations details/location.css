@@ -926,8 +926,8 @@ p {
 
       /* <---------------------------map location-----------------------------------------> */
 
-      .map .h1{
-        font-size: 24px;
+      .map h1{
+        font-size: 35px;
       }
 
 
@@ -1084,4 +1084,14 @@ p {
   pointer-events: auto;
   opacity:1;
 }
-    
+   
+
+
+
+
+.video-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
