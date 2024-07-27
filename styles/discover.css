@@ -607,6 +607,7 @@ body {
     position: relative;
     z-index: 1;
     transform: translateY(14px);
+  
   }
   .card input[type=checkbox] {
     display: none;
