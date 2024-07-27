@@ -469,8 +469,8 @@ h4 {
   font-weight: 500;
 }
 .hero__img {
-  width: 200%;
-  height: 100%;
+  width: 180%;
+  height: 90%;
   grid-column: 2 / 3;
   grid-row: 1 / span 4;
   transform: translateY(-6rem);
