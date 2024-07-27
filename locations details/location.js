@@ -58,22 +58,22 @@ const tabsContent = document.querySelectorAll('.operations__content');
 
 
 // Button scrolling
-btnScrollTo.addEventListener('click', function (e) {
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
+// btnScrollTo.addEventListener('click', function (e) {
+//   const s1coords = section1.getBoundingClientRect();
+//   console.log(s1coords);
 
-  console.log(e.target.getBoundingClientRect());
+//   console.log(e.target.getBoundingClientRect());
 
-  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+//   console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
 
-  console.log(
-    'height/width viewport',
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth
-  );
+//   console.log(
+//     'height/width viewport',
+//     document.documentElement.clientHeight,
+//     document.documentElement.clientWidth
+//   );
 
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
+//   section1.scrollIntoView({ behavior: 'smooth' });
+// });
 
 
 // Tabbed component
@@ -221,13 +221,27 @@ slider();
 
 
 
+function scrollToNextSection() {
+  const currentSection = document.activeElement.closest('section');
+  const nextSection = currentSection.nextElementSibling;
+
+  if (nextSection) {
+    nextSection.scrollIntoView();
+  }
+}
 
 
 
 
 
-
-
+// function scrollInto(id) {
+//   var elmnt = document.getElementById(id);
+//   elmnt.scrollIntoView({
+//       behavior: "smooth", 
+//       block: "start",
+//       inline: "nearest"
+//   });
+// }
 
 
 
