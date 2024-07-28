@@ -596,9 +596,10 @@ body {
   .card .data {
     position: absolute;
     bottom: 10px;
-    left: 70%;
+    left: 63%;
     right: 40%;
     width: 100%;
+    font-size: 12px;
     transform: translateY(calc(70px + 1em));
     transition: transform 0.3s;
   }
@@ -609,6 +610,15 @@ body {
     transform: translateY(14px);
   
   }
+
+
+  
+
+
+
+
+
+
   .card input[type=checkbox] {
     display: none;
   }
@@ -625,6 +635,37 @@ body {
   @media (max-width: 420px) {
     .card {
       min-height: 300px;
+    }
+  }
+
+
+  @media (max-width: 450px) {
+    html {
+      font-size: 50%;
+    }
+    .heading {
+      font-size: 3rem;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .card {
+      width: 400px;
+      margin: auto;
+    }
+    .card .data .Econtent {
+      transform: translateY(19px);
+      }
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .card {
+      width: 400px;
+      margin: auto;
+    }
+    .card .data .Econtent {
+    transform: translateY(19px);
     }
   }
 
