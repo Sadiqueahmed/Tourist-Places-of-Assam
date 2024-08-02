@@ -1146,10 +1146,10 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 16px 36px ;
+  padding: 7px 27px ;
   border: 4px solid;
   border-color: transparent;
-  font-size: 10px;
+  font-size: 12px;
   background-color: inherit;
   border-radius: 100px;
   font-weight: 600;
@@ -1158,7 +1158,7 @@ body {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  left: 60%;
+  left: 73%;
  top: 60px;
 
  
@@ -1171,7 +1171,7 @@ body {
   fill: greenyellow;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  font-size: 10px;
+ 
   
   
 }
