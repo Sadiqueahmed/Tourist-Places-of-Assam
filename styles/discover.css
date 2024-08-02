@@ -1139,7 +1139,9 @@ body {
 
 
 
-
+.animated-button a {
+  color: inherit;
+}
 
 .animated-button {
   position: relative;
@@ -1153,8 +1155,8 @@ body {
   background-color: inherit;
   border-radius: 100px;
   font-weight: 600;
-  color: greenyellow;
-  box-shadow: 0 0 0 2px greenyellow;
+  color: whitesmoke;
+  box-shadow: 0 0 0 2px whitesmoke;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
@@ -1168,7 +1170,7 @@ body {
 .animated-button svg {
   position: absolute;
   width: 22px;
-  fill: greenyellow;
+  fill: whitesmoke;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
  
@@ -1191,7 +1193,7 @@ body {
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: greenyellow;
+  background-color: whitesmoke;
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -1231,7 +1233,7 @@ body {
 
 .animated-button:active {
   scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
+  box-shadow: 0 0 0 4px whitesmoke; 
 }
 
 .animated-button:hover .circle {
