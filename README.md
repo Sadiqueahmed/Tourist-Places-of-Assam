@@ -30,14 +30,15 @@ Here are some Snapshots of The website :
 ![Screenshot 2024-09-01 081832](https://github.com/user-attachments/assets/433df307-a457-444e-9969-2d6b59da2285)
 
 
+![Screenshot 2024-09-01 081911](https://github.com/user-attachments/assets/c182f605-d9a0-493e-9651-05595b0485f8)
+
+
+![Screenshot 2024-09-01 081941](https://github.com/user-attachments/assets/adebfd65-b61f-42ca-b121-243539dff4e3)
+
+
+
 Contributing
 We welcome contributions from the community to enhance this website. Feel free to submit:
 
 Bug Reports: If you encounter any issues, please report them on the GitHub repository.
 Feature Requests: Suggest new features or improvements to the website.
-
-
-![Screenshot 2024-09-01 081911](https://github.com/user-attachments/assets/c182f605-d9a0-493e-9651-05595b0485f8)
-
-
-![Screenshot 2024-09-01 081941](https://github.com/user-attachments/assets/adebfd65-b61f-42ca-b121-243539dff4e3)
