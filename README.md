@@ -40,5 +40,5 @@ Here are some Snapshots of The website :
 Contributing : 
 We welcome contributions from the community to enhance this website. Feel free to submit:
 
-Bug Reports: If you encounter any issues, please report them on the GitHub repository.
-Feature Requests: Suggest new features or improvements to the website.
+1. Bug Reports: If you encounter any issues, please report them on the GitHub repository.
+2. Feature Requests: Suggest new features or improvements to the website.
