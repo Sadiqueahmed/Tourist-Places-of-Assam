@@ -2,7 +2,7 @@
 
 
 Project Overview :
-This website is designed to provide comprehensive information about the diverse tourist attractions in the beautiful state of Assam, India. It aims to be a valuable resource for both local residents and visitors, offering detailed descriptions, images, and practical tips for planning a memorable trip.
+  This website is designed to provide comprehensive information about the diverse tourist attractions in the beautiful state of Assam, India. It aims to be a valuable resource for both local residents and visitors, offering detailed descriptions, images, and practical tips for planning a memorable trip.
 
 Key Features
 1. Comprehensive Database: A curated collection of popular tourist destinations, including national parks, wildlife sanctuaries, historical sites, temples, and tea gardens.
