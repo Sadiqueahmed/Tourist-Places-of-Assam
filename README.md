@@ -1,16 +1,16 @@
 # Tourist-Places-of-Assam
 
 
-Project Overview
+Project Overview :
 This website is designed to provide comprehensive information about the diverse tourist attractions in the beautiful state of Assam, India. It aims to be a valuable resource for both local residents and visitors, offering detailed descriptions, images, and practical tips for planning a memorable trip.
 
 Key Features
-> Comprehensive Database: A curated collection of popular tourist destinations, including national parks, wildlife sanctuaries, historical sites, temples, and tea gardens.
-> Detailed Descriptions: In-depth information about each location, covering its history, significance, and unique features.
-> High-Quality Images: Stunning visuals to showcase the natural beauty and cultural heritage of Assam.
-> Interactive Maps: Easy-to-use maps to help users navigate and locate attractions.
-> Practical Information: Travel tips, transportation options, accommodation suggestions, and local cuisine recommendations.
-> User-Friendly Interface: A clean and intuitive design for a seamless user experience.
+1. Comprehensive Database: A curated collection of popular tourist destinations, including national parks, wildlife sanctuaries, historical sites, temples, and tea gardens.
+2. Detailed Descriptions: In-depth information about each location, covering its history, significance, and unique features.
+3. High-Quality Images: Stunning visuals to showcase the natural beauty and cultural heritage of Assam.
+5. Interactive Maps: Easy-to-use maps to help users navigate and locate attractions.
+6. Practical Information: Travel tips, transportation options, accommodation suggestions, and local cuisine recommendations.
+7. User-Friendly Interface: A clean and intuitive design for a seamless user experience.
 
 
 Here are some Snapshots of The website :
