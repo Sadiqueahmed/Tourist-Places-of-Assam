@@ -42,3 +42,4 @@ We welcome contributions from the community to enhance this website. Feel free t
 
 1. Bug Reports: If you encounter any issues, please report them on the GitHub repository.
 2. Feature Requests: Suggest new features or improvements to the website.
+3. Pull Requests: Contribute code changes on the project 
