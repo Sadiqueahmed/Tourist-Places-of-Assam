@@ -37,7 +37,7 @@ Here are some Snapshots of The website :
 
 
 
-Contributing
+Contributing : 
 We welcome contributions from the community to enhance this website. Feel free to submit:
 
 Bug Reports: If you encounter any issues, please report them on the GitHub repository.
