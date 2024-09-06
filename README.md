@@ -42,4 +42,13 @@ We welcome contributions from the community to enhance this website. Feel free t
 
 1. Bug Reports: If you encounter any issues, please report them on the GitHub repository.
 2. Feature Requests: Suggest new features or improvements to the website.
-3. Pull Requests: Contribute code changes on the project 
+3. Pull Requests: Contribute code changes on the project
+
+  
+
+
+   <html>
+     <head> <h3 align="left">Support:</h3></head>
+     <body><p><a href="https://www.buymeacoffee.com/Sadique"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="Sadique Ahmed" /></a></p><br><br>
+</body>
+   </html>
