@@ -10,15 +10,6 @@ Explore the beauty of Assam, India, with an interactive guide that provides key 
 - **Upcoming Events**: Get details about upcoming events and festivals in Assam.
 - **Geolocation**: Discover nearby tourist spots based on your location.
 
-## Prerequisites 🔑
-To use the APIs integrated into this project, you need to register and obtain API keys for the following services:
-
-- **Google Maps API**: [Google Cloud Console](https://console.cloud.google.com/)
-- **OpenWeatherMap API**: [OpenWeatherMap](https://openweathermap.org/api)
-- **Flickr API**: [Flickr API](https://www.flickr.com/services/api/)
-- **Eventful API**: [Eventful API](http://api.eventful.com/)
-
-
 ## Project Structure 📁
 
 The project consists of the following key sections:
@@ -29,6 +20,14 @@ The project consists of the following key sections:
 4. **Wikipedia Information**: General information about Assam sourced from Wikipedia.
 5. **Photos from Flickr**: Displays a gallery of Assam-related photos.
 6. **Upcoming Events**: Information about upcoming events in Assam.
+
+## Prerequisites 🔑
+To use the APIs integrated into this project, you need to register and obtain API keys for the following services:
+
+- **Google Maps API**: [Google Cloud Console](https://console.cloud.google.com/)
+- **OpenWeatherMap API**: [OpenWeatherMap](https://openweathermap.org/api)
+- **Flickr API**: [Flickr API](https://www.flickr.com/services/api/)
+- **Eventful API**: [Eventful API](http://api.eventful.com/)
 
 ## Live Demo 🎥
 
