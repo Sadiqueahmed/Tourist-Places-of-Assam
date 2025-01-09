@@ -18,18 +18,6 @@ To use the APIs integrated into this project, you need to register and obtain AP
 - **Flickr API**: [Flickr API](https://www.flickr.com/services/api/)
 - **Eventful API**: [Eventful API](http://api.eventful.com/)
 
-## Setup Instructions 🛠️
-
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/Sadiqueahmed/Tourist-Places-of-Assam.git
-    ```
-2. **Open `index.html`** in a browser.
-3. **Add your API keys**:
-    - Replace `YOUR_GOOGLE_MAPS_API_KEY` with your Google Maps API key.
-    - Replace `YOUR_OPENWEATHERMAP_API_KEY` with your OpenWeatherMap API key.
-    - Replace `YOUR_FLICKR_API_KEY` with your Flickr API key.
-    - Replace `YOUR_EVENTFUL_API_KEY` with your Eventful API key.
 
 ## Project Structure 📁
 
@@ -45,6 +33,20 @@ The project consists of the following key sections:
 ## Live Demo 🎥
 
 A live version of this project can be run locally by following the setup instructions. The API keys are required for the functionality.
+
+## Setup Instructions 🛠️
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/Sadiqueahmed/Tourist-Places-of-Assam.git
+    ```
+2. **Open `index.html`** in a browser.
+3. **Add your API keys**:
+    - Replace `YOUR_GOOGLE_MAPS_API_KEY` with your Google Maps API key.
+    - Replace `YOUR_OPENWEATHERMAP_API_KEY` with your OpenWeatherMap API key.
+    - Replace `YOUR_FLICKR_API_KEY` with your Flickr API key.
+    - Replace `YOUR_EVENTFUL_API_KEY` with your Eventful API key.
+
 
 ## Screenshots 📸
 
