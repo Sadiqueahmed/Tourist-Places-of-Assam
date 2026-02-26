@@ -1,0 +1,64 @@
+<!-- footer section starts -->
+<section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="/">home</a>
+            <a href="/adventure">adventure</a>
+            <a href="/discover">discover</a>
+            <a href="/events">events</a>
+            <a href="/products">products</a>
+            <a href="/about">about</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <% if (typeof user !== 'undefined' && user) { %>
+                <a href="/auth/logout">my account</a>
+                <a href="/products">my order</a>
+                <a href="/places">my wishlist</a>
+            <% } else { %>
+                <a href="/auth/login">my account</a>
+                <a href="/auth/login">my order</a>
+                <a href="/auth/login">my wishlist</a>
+            <% } %>
+            <a href="#">ask questions</a>
+            <a href="#">terms of use</a>
+            <a href="#">privacy policy</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="tel:6003112208"> <i class="fas fa-phone"></i> Call-here </a>
+            <a href="tel:8472039629"> <i class="fas fa-phone"></i> Call-here </a>
+            <a href="mailto:admin@visitassam.com"> <i class="fas fa-envelope"></i> admin@visitassam.com </a>
+            <a href="#"> <i class="fas fa-map"></i> Assam, India</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="https://www.facebook.com" target="_blank"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="https://twitter.com" target="_blank"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="https://www.instagram.com" target="_blank"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="https://www.linkedin.com" target="_blank"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="https://github.com"><i class="fab fa-github"></i> github </a>
+        </div>
+    </div>
+
+    <div class="credit">Made with 🤍 in<span> Assam</span></div>
+</section>
+<!-- footer section ends -->
+
+<!-- Tawk.to Live Chat -->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/681ce1865fa91f190c4984b7/1iqod1udr';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+

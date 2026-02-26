@@ -1,0 +1,116 @@
+<!-- adventure section starts -->
+<section class="adventure" style="padding-top: 100px; min-height: 100vh;">
+    <div class="adventure-header" style="text-align: center; padding: 50px 9%;">
+        <h1 class="heading" style="font-size: 4rem; color: #10221b; margin-bottom: 20px;">Adventure Activities</h1>
+        <p style="font-size: 1.6rem; color: #666; max-width: 800px; margin: 0 auto;">
+            Experience thrilling adventures in the heart of Assam's natural beauty. From wildlife safaris to river rafting, there's something for every adventurer.
+        </p>
+    </div>
+
+    <!-- Adventure Activities -->
+    <div class="adventure-container" style="padding: 0 9% 50px;">
+        <% if (adventures && adventures.length > 0) { %>
+            <% adventures.forEach((adventure, index) => { %>
+                <div class="adventure-item" id="<%= adventure.slug || 'adventure-' + index %>" 
+                     style="display: flex; align-items: center; gap: 50px; margin-bottom: 80px; <%= index % 2 === 1 ? 'flex-direction: row-reverse;' : '' %>">
+                    <div class="adventure-image" style="flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                        <img src="<%= adventure.image_url || '/assets/Images/placeholder.jpg' %>" 
+                             alt="<%= adventure.title %>"
+                             style="width: 100%; height: 400px; object-fit: cover; transition: transform 0.3s;"
+                             onmouseover="this.style.transform='scale(1.05)'"
+                             onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                    <div class="adventure-content" style="flex: 1;">
+                        <h2 style="font-size: 3rem; color: #10221b; margin-bottom: 20px;"><%= adventure.title %></h2>
+                        <p style="font-size: 1.5rem; color: #666; line-height: 1.8; margin-bottom: 25px;">
+                            <%= adventure.description %>
+                        </p>
+                        <div class="adventure-meta" style="display: flex; gap: 30px; margin-bottom: 25px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-clock" style="color: #219150; font-size: 1.8rem;"></i>
+                                <span style="font-size: 1.4rem; color: #666;"><%= adventure.duration || '2-4 hours' %></span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-tag" style="color: #219150; font-size: 1.8rem;"></i>
+                                <span style="font-size: 1.4rem; color: #666;">From <%= adventure.price ? '₹' + adventure.price : '₹2,500' %></span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-star" style="color: #219150; font-size: 1.8rem;"></i>
+                                <span style="font-size: 1.4rem; color: #666;"><%= adventure.rating || '4.5' %> Rating</span>
+                            </div>
+                        </div>
+                        <a href="#" 
+                           style="display: inline-block; padding: 15px 35px; background: #219150; color: white; text-decoration: none; border-radius: 30px; font-size: 1.5rem; transition: all 0.3s;"
+                           onmouseover="this.style.background='#1a7a3e'; this.style.transform='translateY(-2px)'"
+                           onmouseout="this.style.background='#219150'; this.style.transform='translateY(0)'">
+                            Book Now <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <!-- Fallback static content -->
+            <div class="adventure-item" id="jeep-safari" style="display: flex; align-items: center; gap: 50px; margin-bottom: 80px;">
+                <div class="adventure-image" style="flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <img src="/assets/Images/jeep safari.avif" alt="Jeep Safari" style="width: 100%; height: 400px; object-fit: cover;">
+                </div>
+                <div class="adventure-content" style="flex: 1;">
+                    <h2 style="font-size: 3rem; color: #10221b; margin-bottom: 20px;">Jeep Safari</h2>
+                    <p style="font-size: 1.5rem; color: #666; line-height: 1.8; margin-bottom: 25px;">
+                        Do You Want To Engulf Yourself Within The Natural Surroundings Of Kaziranga? Would You Prefer To Immerse Yourself In The Exciting Things To Try And Do Within Kaziranga? If Your Answer Is Affirmative, Then Don't Wait And Arrange A Visit To The World-Famous Life Destination Referred To As Kaziranga Park.
+                    </p>
+                    <a href="#" style="display: inline-block; padding: 15px 35px; background: #219150; color: white; text-decoration: none; border-radius: 30px; font-size: 1.5rem;">
+                        Book Now <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="adventure-item" id="river-rafting" style="display: flex; align-items: center; gap: 50px; margin-bottom: 80px; flex-direction: row-reverse;">
+                <div class="adventure-image" style="flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <img src="/assets/Images/river rafting.jpg" alt="River Rafting" style="width: 100%; height: 400px; object-fit: cover;">
+                </div>
+                <div class="adventure-content" style="flex: 1;">
+                    <h2 style="font-size: 3rem; color: #10221b; margin-bottom: 20px;">River Rafting</h2>
+                    <p style="font-size: 1.5rem; color: #666; line-height: 1.8; margin-bottom: 25px;">
+                        The Fierce And Mighty Brahmaputra Unravels Several Charms For Rafting Enthusiasts. With This Journey Of Entertainment, Get Pleasure From The Higher Waters That Create Its Method Through A Number Of The Foremost Isolated Areas In Asian Nations.
+                    </p>
+                    <a href="#" style="display: inline-block; padding: 15px 35px; background: #219150; color: white; text-decoration: none; border-radius: 30px; font-size: 1.5rem;">
+                        Book Now <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="adventure-item" id="river-cruise" style="display: flex; align-items: center; gap: 50px; margin-bottom: 80px;">
+                <div class="adventure-image" style="flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <img src="/assets/Images/river cruise.webp" alt="River Cruise" style="width: 100%; height: 400px; object-fit: cover;">
+                </div>
+                <div class="adventure-content" style="flex: 1;">
+                    <h2 style="font-size: 3rem; color: #10221b; margin-bottom: 20px;">River Cruise</h2>
+                    <p style="font-size: 1.5rem; color: #666; line-height: 1.8; margin-bottom: 25px;">
+                        Cruise On The Mighty Brahmaputra River, One Of The World's Greatest Rivers. The Watercourse Runs For 1800 Miles From Its Supply Within The Tibetan Himalayas To Its Delta Within The Bay Of The Geographical Region.
+                    </p>
+                    <a href="#" style="display: inline-block; padding: 15px 35px; background: #219150; color: white; text-decoration: none; border-radius: 30px; font-size: 1.5rem;">
+                        Book Now <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="adventure-item" id="trekking" style="display: flex; align-items: center; gap: 50px; margin-bottom: 80px; flex-direction: row-reverse;">
+                <div class="adventure-image" style="flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <img src="/assets/Images/trekking.webp" alt="Trekking" style="width: 100%; height: 400px; object-fit: cover;">
+                </div>
+                <div class="adventure-content" style="flex: 1;">
+                    <h2 style="font-size: 3rem; color: #10221b; margin-bottom: 20px;">Trekking</h2>
+                    <p style="font-size: 1.5rem; color: #666; line-height: 1.8; margin-bottom: 25px;">
+                        Guwahati Is One In Every Perfect Town Of The Province That Provides A Number Of Thrilling And Brave Activities That Attract Enthusiasts In Immense Numbers From Everywhere Around The Globe.
+                    </p>
+                    <a href="#" style="display: inline-block; padding: 15px 35px; background: #219150; color: white; text-decoration: none; border-radius: 30px; font-size: 1.5rem;">
+                        Book Now <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
+<!-- adventure section ends -->
+

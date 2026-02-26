@@ -1,0 +1,323 @@
+<!-- home section starts -->
+<section class="home" id="home">
+    <div class="swiper home-slider">
+        <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+                <div class="box second" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.615), rgba(255, 255, 0, 0)), url(/assets/Images/image35.jpg) center/cover no-repeat;">
+                    <div class="content">
+                        <span style="color:white;">#Visit</span>
+                        <h3>Assam</h3>
+                        <p style="color:white;">Assam is a state in northeastern India known for its wildlife, archeological sites and tea plantations. In the west, Guwahati, Assam's largest city, features silk bazaars and the hilltop Kamakhya Temple. Umananda Temple sits on Peacock Island in the Brahmaputra river. The state capital, Dispur, is a suburb of Guwahati. The ancient pilgrimage site of Hajo and Madan Kamdev, the ruins of a temple complex, lie nearby.</p>
+                        <button class="hbtn" onclick="scrollToNextSection()" style="font-size: 10px;">explore <i class="fa fa-caret-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+                <div class="box second" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.615), rgba(255, 255, 0, 0)), url(/assets/Images/image36.jpg) no-repeat;">
+                    <div class="content">
+                        <span style="color:white;">Welcome to</span>
+                        <h3>Paradise</h3>
+                        <p style="color:white;">The great plains of Assam have an ancient history and gain mention in age-old Vedic scriptures like the Mahabharata and Kalika Purana. It is referred to in these texts as Kamrupa. In Hindu mythology, this land was also believed to be ruled by the demon Narakasura who had his capital at 'Pragjyotishpur', the eastern city of lights and a learning center of astronomy.</p>
+                        <button class="hbtn" onclick="scrollToNextSection()">explore <i class="fa fa-caret-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+                <div class="box second" style="background: linear-gradient(#ffffff00, #000000a0), url(/assets/Images/image33.jpg) center/cover no-repeat;">
+                    <div class="content">
+                        <span style="color: white;">Explore the</span>
+                        <h3>Island</h3>
+                        <p style="color: white;">The countryside of Assam appears lush green due to its tea plantations, never-ending paddy fields, and healthy forest cover. The landscape is also dotted with thousands of riverine islands and sand bars on the banks of Brahmaputra as it takes its long course through the plains. The state is surrounded by mountains and hills on all sides, that loom on the distant horizon, adding to the scenery.</p>
+                        <button class="hbtn" onclick="scrollToNextSection()">explore <i class="fa fa-caret-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+                <div class="box second" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.615), rgba(255, 255, 0, 0)), url(/assets/Images/image34.jpg) center/cover no-repeat;">
+                    <div class="content">
+                        <span style="color: white;">Wonder of</span>
+                        <h3>Asia</h3>
+                        <p style="color: white;">From wild habitats to ancient temples of mysticism, shrines, and unique monastical practices, villages of well-preserved indigenous cultures, colorful festivals, and a large hospitable population, Assam is a perfect non-touristy destination with plenty of attractions and mysteries. The great nobleman Swami Vivekananda once must have rightfully said "Next only to Kashmir, Assam is the most beautiful place in India."</p>
+                        <button class="hbtn" onclick="scrollToNextSection()">explore <i class="fa fa-caret-down"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+<!-- home section ends -->
+
+<!-- popular section -->
+<section id="popular">
+    <div id="popheader"><h2>Popular Places to Visit</h2></div>
+    
+    <% if (places && places.length > 0) { %>
+        <% places.forEach((place, index) => { %>
+            <div class="card-container <%= index === 1 ? 'long-card' : '' %>">
+                <div class="card-image">
+                    <img src="<%= place.image_url || '/assets/Images/placeholder.jpg' %>" alt="<%= place.name %>">
+                </div>
+                <div class="card-description">
+                    <p class="title"><%= place.name %></p>
+                    <h2 class="rating">
+                        <span><%= place.rating || '4.0' %></span>
+                        <span class="stars">
+                            <% for(let i = 0; i < 5; i++) { %>
+                                <% if (i < Math.floor(place.rating || 4)) { %>
+                                    <i class="fa-solid fa-star fa-xs"></i>
+                                <% } else if (i < (place.rating || 4)) { %>
+                                    <i class="fa-solid fa-star-half fa-xs"></i>
+                                <% } else { %>
+                                    <i class="fa-regular fa-star fa-xs"></i>
+                                <% } %>
+                            <% } %>
+                        </span>
+                    </h2>
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span class="location"><%= place.location || 'Assam' %></span>
+                    </p>
+                    <p class="duration"><%= place.duration || '2 days' %></p>
+                </div>
+                <div class="card-bookmark">
+                    <button>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                </div>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <!-- Fallback static content if no places in database -->
+        <div class="card-container">
+            <div class="card-image">
+                <img src="/assets/Images/Kaziranga National Park1.jpg" alt="Kaziranga">
+            </div>
+            <div class="card-description">
+                <p class="title">Kaziranga</p>
+                <h2 class="rating">
+                    <span>4.5</span>
+                    <span class="stars">
+                        <i class="fa-solid fa-star fa-xs"></i>
+                        <i class="fa-solid fa-star fa-xs"></i>
+                        <i class="fa-solid fa-star fa-xs"></i>
+                        <i class="fa-solid fa-star fa-xs"></i>
+                        <i class="fa-solid fa-star-half fa-xs"></i>
+                    </span>
+                </h2>
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="location">Assam</span>
+                </p>
+                <p class="duration">2 days</p>
+            </div>
+            <div class="card-bookmark">
+                <button>
+                    <i class="fa-regular fa-bookmark"></i>
+                </button>
+            </div>
+        </div>
+    <% } %>
+</section>
+
+<!-- category/adventure section starts -->
+<section class="category adventure" id="adventure">
+    <h1 class="heading">Adventure Activities</h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="/assets/Images/jeep safari.avif" alt="Jeep Safari">
+            <h3>Jeep Safari</h3>
+            <p>Do You Want To Engulf Yourself Within The Natural Surroundings Of Kaziranga? Would ...</p>
+            <a href="/adventure#para" class="btn">read more</a>
+        </div>
+        <div class="box">
+            <img src="/assets/Images/river rafting.jpg" alt="River Rafting">
+            <h3>River Rafting</h3>
+            <p>The Fierce And Mighty Brahmaputra Unravels Several Charms For Rafting Enthusiasts....</p>
+            <a href="/adventure#heli" class="btn">read more</a>
+        </div>
+        <div class="box">
+            <img src="/assets/Images/river cruise.webp" alt="River Cruise">
+            <h3>River Cruise</h3>
+            <p>Cruise On The Mighty Brahmaputra River, One Of The World's Greatest Rivers...</p>
+            <a href="/adventure#balloon" class="btn">read more</a>
+        </div>
+        <div class="box">
+            <img src="/assets/Images/trekking.webp" alt="Trekking">
+            <h3>Trekking</h3>
+            <p>Guwahati Is One In Every Perfect Town Of The Province That Provides A ...</p>
+            <a href="/adventure#safa" class="btn">read more</a>
+        </div>
+    </div>
+</section>
+<!-- category/adventure section ends -->
+
+<!-- video section -->
+<div class="video-section">
+    <iframe width="1110" height="625" src="https://www.youtube.com/embed/BcbpC3rT90s?si=wbZte35iAfkcc_7w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<!-- event home page section starts -->
+<section class="event">
+    <h1 class="heading1">Events</h1>
+    <div class="eventrow">
+        <% if (events && events.length > 0) { %>
+            <% events.forEach(event => { %>
+                <div class="example-2 card">
+                    <% const eventBgImage = event.image_url || '/assets/Images/placeholder.jpg'; %>
+                    <div class="wrapper" style="background: linear-gradient(#ffffff00, #00000082), url('<%= eventBgImage %>') center/cover no-repeat;">
+                        <div class="head">
+                            <div class="date">
+                                <% const eventDate = new Date(event.date); %>
+                                <span class="day"><%= eventDate.getDate() %></span>
+                                <span class="month"><%= eventDate.toLocaleString('default', { month: 'short' }) %></span>
+                                <span class="year"><%= eventDate.getFullYear() %></span>
+                            </div>
+                            <ul class="menu-content">
+                                <li><a href="#" class="fa fa-bookmark-o"></a></li>
+                                <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+                                <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="data">
+                            <div class="Econtent">
+                                <h1 class="title"><a href="/events/<%= event.id %>"><%= event.title %></a></h1>
+                                <p class="text1"><%= event.description ? event.description.substring(0, 100) + '...' : 'No description available' %></p>
+                                <a href="/events/<%= event.id %>" class="Ebutton">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <!-- Fallback static events -->
+            <div class="example-2 card">
+                <div class="wrapper" style="background: linear-gradient(#ffffff00, #00000082), url(/assets/Images/bihu.jpg) center/cover no-repeat;">
+                    <div class="head">
+                        <div class="date">
+                            <span class="day">14</span>
+                            <span class="month">Apr</span>
+                            <span class="year">2024</span>
+                        </div>
+                        <ul class="menu-content">
+                            <li><a href="#" class="fa fa-bookmark-o"></a></li>
+                            <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+                            <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="data">
+                        <div class="Econtent">
+                            <h1 class="title"><a href="#">Bihu Festival</a></h1>
+                            <p class="text1">Bihu is the essence of Assam and is celebrated across the state with tremendous zeal...</p>
+                            <a href="/events" class="Ebutton">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
+<!-- event home page section ends -->
+
+<!-- Traditional Products section start -->
+<section class="products">
+    <h1 class="heading1">Traditional Products</h1>
+    <div class="wrapper">
+        <div class="item-bg"></div>
+        <div class="news-slider">
+            <div class="news-slider__wrp swiper-wrapper">
+                <% if (products && products.length > 0) { %>
+                    <% products.forEach(product => { %>
+                        <div class="news-slider__item swiper-slide">
+                            <a href="/products/<%= product.id %>" class="news__item">
+                                <div class="news__title"><%= product.name %></div>
+                                <p class="news__txt"><%= product.description ? product.description.substring(0, 100) + '...' : 'No description available' %></p>
+                                <div class="news__img">
+                                    <img src="<%= product.image_url || '/assets/Images/placeholder.jpg' %>" alt="<%= product.name %>">
+                                </div>
+                            </a>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <!-- Fallback static products -->
+                    <div class="news-slider__item swiper-slide">
+                        <a href="/products" class="news__item">
+                            <div class="news__title">Traditional Mask</div>
+                            <p class="news__txt">The art of mask making is Gurujana's one of the most unique creations...</p>
+                            <div class="news__img">
+                                <img src="/assets/Images/masks/Mukh mukha.jpg" alt="Traditional Mask">
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+            <div class="news-slider__ctr">
+                <div class="news-slider__arrows">
+                    <button class="news-slider__arrow news-slider-prev">
+                        <span class="icon-font">
+                            <svg class="picon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg>
+                        </span>
+                    </button>
+                    <button class="news-slider__arrow news-slider-next">
+                        <span class="icon-font">
+                            <svg class="picon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg>
+                        </span>
+                    </button>
+                </div>
+                <div class="news-slider__pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Traditional Products section end -->
+
+<!-- reviews section starts -->
+<section class="reviews" id="reviews">
+    <h1 class="heading">Tourist's Reviews</h1>
+    <div class="swiper review-slider">
+        <div class="swiper-wrapper">
+            <% if (reviews && reviews.length > 0) { %>
+                <% reviews.forEach(review => { %>
+                    <div class="swiper-slide slide">
+                        <p class="text">"<%= review.comment %>"</p>
+                        <div class="user">
+                            <img src="/assets/Images/pic-1.png" alt="<%= review.users?.name || 'User' %>">
+                            <div class="info">
+                                <h3><%= review.users?.name || 'Anonymous' %></h3>
+                                <span><%= review.rating %>/5 stars</span>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <!-- Fallback static reviews -->
+                <div class="swiper-slide slide">
+                    <p class="text">"Kaziranga is truly a gem! The safari experience was unforgettable, and spotting the one-horned rhinoceros in their natural habitat was the highlight of our trip."</p>
+                    <div class="user">
+                        <img src="/assets/Images/pic-1.png" alt="John D.">
+                        <div class="info">
+                            <h3>John D.</h3>
+                            <span>United Kingdom</span>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+<!-- reviews section ends -->
+
+<script>
+    function scrollToNextSection() {
+        document.getElementById('popular').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>

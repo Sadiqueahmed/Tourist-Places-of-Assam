@@ -1,0 +1,151 @@
+<!-- products section starts -->
+<section class="products-page" style="padding-top: 100px; min-height: 100vh;">
+    <div class="products-header" style="text-align: center; padding: 50px 9%;">
+        <h1 class="heading" style="font-size: 4rem; color: #10221b; margin-bottom: 20px;">Traditional Products</h1>
+        <p style="font-size: 1.6rem; color: #666; max-width: 800px; margin: 0 auto;">
+            Discover authentic Assamese handicrafts, traditional textiles, organic spices, and unique souvenirs that reflect the rich cultural heritage of the region.
+        </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-section" style="padding: 0 9% 30px;">
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+            <a href="/products" class="filter-btn <%= !selectedCategory ? 'active-filter' : '' %>" 
+               style="padding: 10px 25px; border-radius: 25px; text-decoration: none; font-size: 1.4rem; transition: all 0.3s; background: <%= !selectedCategory ? '#219150' : '#f0f0f0' %>; color: <%= !selectedCategory ? 'white' : '#10221b' %>;">
+                All Products
+            </a>
+            <% if (typeof categories !== 'undefined' && categories) { %>
+                <% categories.forEach(cat => { %>
+                    <a href="/products?category=<%= encodeURIComponent(cat) %>" 
+                       class="filter-btn <%= selectedCategory === cat ? 'active-filter' : '' %>"
+                       style="padding: 10px 25px; border-radius: 25px; text-decoration: none; font-size: 1.4rem; transition: all 0.3s; background: <%= selectedCategory === cat ? '#219150' : '#f0f0f0' %>; color: <%= selectedCategory === cat ? 'white' : '#10221b' %>;">
+                        <%= cat %>
+                    </a>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" style="padding: 0 9% 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <% if (products && products.length > 0) { %>
+            <% products.forEach(product => { %>
+                <div class="product-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s;"
+                     onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.15)'"
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(0,0,0,0.1)'">
+                    <div class="product-image" style="height: 250px; overflow: hidden; position: relative;">
+                        <img src="<%= product.image_url || '/assets/Images/placeholder.jpg' %>" 
+                             alt="<%= product.name %>"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s;"
+                             onmouseover="this.style.transform='scale(1.1)'"
+                             onmouseout="this.style.transform='scale(1)'">
+                        <% if (product.category) { %>
+                            <span style="position: absolute; top: 15px; right: 15px; background: rgba(33,145,80,0.9); color: white; padding: 8px 15px; border-radius: 20px; font-size: 1.2rem; text-transform: uppercase;">
+                                <%= product.category %>
+                            </span>
+                        <% } %>
+                    </div>
+                    <div class="product-content" style="padding: 25px;">
+                        <h3 style="font-size: 1.9rem; color: #10221b; margin-bottom: 10px;"><%= product.name %></h3>
+                        <p style="color: #666; font-size: 1.4rem; line-height: 1.6; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            <%= product.description || 'No description available' %>
+                        </p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <span style="font-size: 2.2rem; color: #219150; font-weight: bold;">
+                                <%= product.price ? '₹' + product.price : 'Price on request' %>
+                            </span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="/products/<%= product.id %>" 
+                               style="flex: 1; padding: 12px; background: #219150; color: white; text-decoration: none; border-radius: 8px; font-size: 1.4rem; text-align: center; transition: all 0.3s;"
+                               onmouseover="this.style.background='#1a7a3e'"
+                               onmouseout="this.style.background='#219150'">
+                                View Details
+                            </a>
+                            <button style="padding: 12px 15px; background: #f0f0f0; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s;"
+                                    onmouseover="this.style.background='#e74c3c'; this.style.color='white'"
+                                    onmouseout="this.style.background='#f0f0f0'; this.style.color='inherit'">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <!-- Fallback static products -->
+            <div class="product-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <div class="product-image" style="height: 250px; overflow: hidden;">
+                    <img src="/assets/Images/masks/Mukh mukha.jpg" alt="Traditional Mask" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-content" style="padding: 25px;">
+                    <h3 style="font-size: 1.9rem; color: #10221b; margin-bottom: 10px;">Traditional Mask</h3>
+                    <p style="color: #666; font-size: 1.4rem; line-height: 1.6; margin-bottom: 15px;">
+                        The art of mask making is Gurujana's one of the most unique creations that became a traditional folk art of Assam.
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <span style="font-size: 2.2rem; color: #219150; font-weight: bold;">₹1,500</span>
+                    </div>
+                    <a href="#" style="display: block; padding: 12px; background: #219150; color: white; text-decoration: none; border-radius: 8px; font-size: 1.4rem; text-align: center;">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <div class="product-image" style="height: 250px; overflow: hidden;">
+                    <img src="/assets/Images/spices.jpg" alt="Traditional Spices" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-content" style="padding: 25px;">
+                    <h3 style="font-size: 1.9rem; color: #10221b; margin-bottom: 10px;">Traditional Spices</h3>
+                    <p style="color: #666; font-size: 1.4rem; line-height: 1.6; margin-bottom: 15px;">
+                        Herbs and spices have been a major influence on Eastern cuisine since times immemorial. Spices heighten the flavour and aroma.
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <span style="font-size: 2.2rem; color: #219150; font-weight: bold;">₹800</span>
+                    </div>
+                    <a href="#" style="display: block; padding: 12px; background: #219150; color: white; text-decoration: none; border-radius: 8px; font-size: 1.4rem; text-align: center;">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <div class="product-image" style="height: 250px; overflow: hidden;">
+                    <img src="/assets/Images/traditional food.jpg" alt="Traditional Foods" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-content" style="padding: 25px;">
+                    <h3 style="font-size: 1.9rem; color: #10221b; margin-bottom: 10px;">Traditional Foods</h3>
+                    <p style="color: #666; font-size: 1.4rem; line-height: 1.6; margin-bottom: 15px;">
+                        Assam culture food, known for its distinct flavors, includes staple dishes like rice and fish curries.
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <span style="font-size: 2.2rem; color: #219150; font-weight: bold;">₹500</span>
+                    </div>
+                    <a href="#" style="display: block; padding: 12px; background: #219150; color: white; text-decoration: none; border-radius: 8px; font-size: 1.4rem; text-align: center;">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <div class="product-image" style="height: 250px; overflow: hidden;">
+                    <img src="/assets/Images/bamboo.jpg" alt="Bamboo Crafts" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="product-content" style="padding: 25px;">
+                    <h3 style="font-size: 1.9rem; color: #10221b; margin-bottom: 10px;">Bamboo Crafts</h3>
+                    <p style="color: #666; font-size: 1.4rem; line-height: 1.6; margin-bottom: 15px;">
+                        It's been more than two thousand years that various traditional crafts have emerged in Assam.
+                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <span style="font-size: 2.2rem; color: #219150; font-weight: bold;">₹2,000</span>
+                    </div>
+                    <a href="#" style="display: block; padding: 12px; background: #219150; color: white; text-decoration: none; border-radius: 8px; font-size: 1.4rem; text-align: center;">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
+<!-- products section ends -->
+
