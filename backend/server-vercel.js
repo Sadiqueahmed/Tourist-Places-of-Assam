@@ -5,6 +5,11 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+const connectDB = require('./config/db');
+
+// Connect to Database
+connectDB();
+
 const app = express();
 
 // Middleware
@@ -13,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // Static files - serve from root assets directory
-app.use('/assets', express.static(path.join(__dirname, '../assets')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Session configuration for production

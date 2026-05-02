@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { supabase } = require('../config/supabase');
+const Place = require('../models/Place');
+const Review = require('../models/Review');
 const { optionalAuth } = require('../middleware/auth');
 
 // Get all places
@@ -8,19 +9,17 @@ router.get('/', optionalAuth, async (req, res) => {
   try {
     const { category, search } = req.query;
     
-    let query = supabase.from('places').select('*');
+    let query = {};
     
     if (category) {
-      query = query.eq('category', category);
+      query.category = category;
     }
     
     if (search) {
-      query = query.ilike('name', `%${search}%`);
+      query.name = { $regex: search, $options: 'i' };
     }
     
-    const { data: places, error } = await query.order('rating', { ascending: false });
-
-    if (error) throw error;
+    const places = await Place.find(query).sort({ rating: -1 }).lean();
 
     res.render('places/index', {
       title: 'Tourist Places - Visit Assam',
@@ -47,39 +46,40 @@ router.get('/:id', optionalAuth, async (req, res) => {
     const { id } = req.params;
 
     // Get place details
-    const { data: place, error: placeError } = await supabase
-      .from('places')
-      .select('*')
-      .eq('id', id)
-      .single();
+    const place = await Place.findById(id).lean();
 
-    if (placeError || !place) {
+    if (!place) {
       return res.status(404).render('404', { title: 'Place Not Found' });
     }
 
     // Get reviews for this place
-    const { data: reviews, error: reviewsError } = await supabase
-      .from('reviews')
-      .select('*, users(name)')
-      .eq('place_id', id)
-      .order('created_at', { ascending: false });
-
-    if (reviewsError) console.error('Reviews error:', reviewsError);
+    const reviews = await Review.find({ place_id: id })
+      .populate('user_id', 'name')
+      .sort({ created_at: -1 })
+      .lean();
+      
+    // Map reviews to match the EJS template structure
+    const formattedReviews = reviews.map(r => ({
+      ...r,
+      users: r.user_id ? { name: r.user_id.name } : { name: 'Anonymous' }
+    }));
 
     // Get related places
-    const { data: relatedPlaces, error: relatedError } = await supabase
-      .from('places')
-      .select('*')
-      .eq('category', place.category)
-      .neq('id', id)
-      .limit(3);
-
-    if (relatedError) console.error('Related places error:', relatedError);
+    let relatedPlaces = [];
+    if (place.category_id) {
+      relatedPlaces = await Place.find({ 
+        category_id: place.category_id, 
+        _id: { $ne: id } 
+      }).limit(3).lean();
+    } else {
+      // Fallback if no category_id
+      relatedPlaces = await Place.find({ _id: { $ne: id } }).limit(3).lean();
+    }
 
     res.render('places/show', {
       title: `${place.name} - Visit Assam`,
       place,
-      reviews: reviews || [],
+      reviews: formattedReviews || [],
       relatedPlaces: relatedPlaces || [],
       user: req.user || null
     });
@@ -111,37 +111,22 @@ router.post('/:id/reviews', async (req, res) => {
     }
 
     // Insert review
-    const { error } = await supabase
-      .from('reviews')
-      .insert([
-        {
-          place_id: id,
-          user_id: userId,
-          rating: parseInt(rating),
-          comment,
-          created_at: new Date().toISOString()
-        }
-      ]);
-
-    if (error) {
-      console.error('Review submission error:', error);
-      req.flash('error_msg', 'Failed to submit review');
-      return res.redirect(`/places/${id}`);
-    }
+    const newReview = new Review({
+      place_id: id,
+      user_id: userId,
+      rating: parseInt(rating),
+      comment
+    });
+    
+    await newReview.save();
 
     // Update place rating
-    const { data: reviews } = await supabase
-      .from('reviews')
-      .select('rating')
-      .eq('place_id', id);
+    const reviews = await Review.find({ place_id: id });
 
     if (reviews && reviews.length > 0) {
       const avgRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
       
-      await supabase
-        .from('places')
-        .update({ rating: avgRating.toFixed(1) })
-        .eq('id', id);
+      await Place.findByIdAndUpdate(id, { rating: parseFloat(avgRating.toFixed(1)) });
     }
 
     req.flash('success_msg', 'Review submitted successfully!');

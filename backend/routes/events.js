@@ -1,17 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { supabase } = require('../config/supabase');
+const Event = require('../models/Event');
 const { optionalAuth } = require('../middleware/auth');
 
 // Get all events
 router.get('/', optionalAuth, async (req, res) => {
   try {
-    const { data: events, error } = await supabase
-      .from('events')
-      .select('*')
-      .order('date', { ascending: true });
-
-    if (error) throw error;
+    const events = await Event.find().sort({ date: 1 }).lean();
 
     res.render('events/index', {
       title: 'Events & Festivals - Visit Assam',
@@ -33,13 +28,9 @@ router.get('/:id', optionalAuth, async (req, res) => {
   try {
     const { id } = req.params;
 
-    const { data: event, error } = await supabase
-      .from('events')
-      .select('*')
-      .eq('id', id)
-      .single();
+    const event = await Event.findById(id).lean();
 
-    if (error || !event) {
+    if (!event) {
       return res.status(404).render('404', { title: 'Event Not Found' });
     }
 

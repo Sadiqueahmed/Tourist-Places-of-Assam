@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { supabase } = require('../config/supabase');
+const User = require('../models/User');
 
 // Verify JWT token
 const authenticateToken = async (req, res, next) => {
@@ -10,16 +10,12 @@ const authenticateToken = async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key-change-in-production');
     
     // Verify user exists in database
-    const { data: user, error } = await supabase
-      .from('users')
-      .select('*')
-      .eq('id', decoded.userId)
-      .single();
+    const user = await User.findById(decoded.userId).lean();
 
-    if (error || !user) {
+    if (!user) {
       req.session.destroy();
       return res.status(401).redirect('/auth/login');
     }
@@ -59,12 +55,8 @@ const optionalAuth = async (req, res, next) => {
   
   if (token) {
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const { data: user } = await supabase
-        .from('users')
-        .select('*')
-        .eq('id', decoded.userId)
-        .single();
+      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key-change-in-production');
+      const user = await User.findById(decoded.userId).lean();
       
       if (user) {
         req.user = user;

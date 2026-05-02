@@ -5,6 +5,11 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+const connectDB = require('./config/db');
+
+// Connect to Database
+connectDB();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 

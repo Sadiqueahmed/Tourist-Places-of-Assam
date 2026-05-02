@@ -181,7 +181,7 @@
     color: white;
 }
 
-@media screen and (max-width: 1024px) and (min-width: 721px) { 
+@media screen and (max-width: 1024px) { 
     #left-div {
         display: none;
     }
@@ -203,22 +203,9 @@
     }
 }
 
-@media screen and (max-width: 720px) { 
-    #left-div {
-        display: none;
-    }
-    #right-div {
-        width: 100%;
-        align-items: center;
-    }
+@media screen and (max-width: 768px) { 
     #image-sc {
-        display: block;
         width: 50%;
-        margin-bottom: 30px;
-    }
-    #signup-link {
-        position: absolute;
-        bottom: 0;
     }
     #login-div {
         width: 85%;

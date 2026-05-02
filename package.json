@@ -2,8 +2,10 @@
   "name": "tourist-places-of-assam",
   "version": "1.0.0",
   "description": "Explore the beauty of Assam, India, with an interactive guide that provides key details about popular tourist destinations in the state. This project integrates multiple APIs to provide real-time information and services for a richer experience.",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +21,6 @@
   },
   "homepage": "https://github.com/Sadiqueahmed/Tourist-Places-of-Assam#readme",
   "dependencies": {
-    "@supabase/supabase-js": "^2.98.0",
     "bcryptjs": "^3.0.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^17.3.1",
@@ -28,6 +29,7 @@
     "express-session": "^1.19.0",
     "jsonwebtoken": "^9.0.3",
     "method-override": "^3.0.0",
+    "mongoose": "^9.6.1",
     "multer": "^2.0.2"
   },
   "devDependencies": {

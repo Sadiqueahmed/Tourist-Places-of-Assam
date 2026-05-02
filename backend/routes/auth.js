@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { supabase } = require('../config/supabase');
+const User = require('../models/User');
 
 // Login page
 router.get('/login', (req, res) => {
@@ -42,11 +42,7 @@ router.post('/register', async (req, res) => {
     }
 
     // Check if user exists
-    const { data: existingUser } = await supabase
-      .from('users')
-      .select('*')
-      .eq('email', email)
-      .single();
+    const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       req.flash('error_msg', 'Email already registered');
@@ -58,25 +54,14 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create user
-    const { data: newUser, error } = await supabase
-      .from('users')
-      .insert([
-        {
-          name,
-          email,
-          password: hashedPassword,
-          role: 'user',
-          created_at: new Date().toISOString()
-        }
-      ])
-      .select()
-      .single();
-
-    if (error) {
-      console.error('Registration error:', error);
-      req.flash('error_msg', 'Registration failed. Please try again.');
-      return res.redirect('/auth/signup');
-    }
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+      role: 'user'
+    });
+    
+    await newUser.save();
 
     req.flash('success_msg', 'Registration successful! Please log in.');
     res.redirect('/auth/login');
@@ -98,13 +83,9 @@ router.post('/login', async (req, res) => {
     }
 
     // Find user
-    const { data: user, error } = await supabase
-      .from('users')
-      .select('*')
-      .eq('email', email)
-      .single();
+    const user = await User.findOne({ email });
 
-    if (error || !user) {
+    if (!user) {
       req.flash('error_msg', 'Invalid email or password');
       return res.redirect('/auth/login');
     }
@@ -119,14 +100,14 @@ router.post('/login', async (req, res) => {
 
     // Create JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email, role: user.role },
-      process.env.JWT_SECRET,
+      { userId: user._id, email: user.email, role: user.role },
+      process.env.JWT_SECRET || 'your-secret-key-change-in-production',
       { expiresIn: '24h' }
     );
 
     // Set session
     req.session.user = {
-      id: user.id,
+      id: user._id,
       name: user.name,
       email: user.email,
       role: user.role

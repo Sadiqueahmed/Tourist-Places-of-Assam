@@ -367,21 +367,16 @@ img, svg {
  */
 
 .main {
-    position: absolute;
+    position: relative;
     display:block;
-    top: 80px;
-    /* left: 25vw;
-    right: 25vw; */
-    width: 498px;
-    height: 664px;
+    width: 90%;
+    max-width: 700px;
+    aspect-ratio: 7 / 6;
     background: url(../images/map1.jpg);
     background-position: center center;
     background-size: cover;
     border-radius: 15px;
-    
 }
-
-
 
 .align {
     width: 100vw;
@@ -399,22 +394,20 @@ img, svg {
 
 .main .jaffna {
     position: absolute;
-    top: 30px;
+    top: 5%;
     right: 70%;
     left: 30%;
 }
 
-
-
-/* .align .main .jaffna:hover {
-    
-} */
-
 .blur {
     width: 100vw;
-    height: 750px;
-    background: url(assets\Images\banners\Assam-blur.jpg);
-    
+    min-height: 750px;
+    background: url(assets/Images/banners/Assam-blur.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ------------------------------banner, sl map section ends ---------------------------*/
@@ -631,47 +624,7 @@ body {
   }
   
   
-  @media (max-width: 768px) {
-    .card {
-      min-height: 350px;
-    }
-  }
-  @media (max-width: 420px) {
-    .card {
-      min-height: 300px;
-    }
-  }
 
-
-  @media (max-width: 450px) {
-    html {
-      font-size: 50%;
-    }
-    .heading {
-      font-size: 3rem;
-    }
-  }
-  
-  @media screen and (max-width: 992px) {
-    .card {
-      width: 400px;
-      margin: auto;
-    }
-    .card .data .Econtent {
-      transform: translateY(19px);
-      }
-  }
-  
-  
-  @media screen and (max-width: 600px) {
-    .card {
-      width: 400px;
-      margin: auto;
-    }
-    .card .data .Econtent {
-    transform: translateY(19px);
-    }
-  }
 
 
 
@@ -722,103 +675,11 @@ body {
 
 
 
-@media (max-width: 1200px) {
-    .header {
-      padding: 2rem;
-    }
-    section {
-      padding: 3rem 2rem;
-    }
-}
-
-
-
-
-
-@media (max-width: 991px) {
-    html {
-      font-size: 55%;
-      scroll-padding-top: 7rem;
-    }
-}
-
-
-@media (max-width: 768px) {
-    .header #menu-btn {
-      display: inline-block;
-    }
-    .header .navbar {
-      position: fixed;
-      top: 0;
-      left: -110%;
-      background: #fff;
-      z-index: 10000;
-      width: 35rem;
-      height: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-flow: column;
-              flex-flow: column;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-    }
-    .header .navbar.active {
-      left: 0;
-      -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
-              box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
-    }
-    .header .navbar a {
-      margin: 1rem 0;
-      font-size: 3rem;
-    }
-    .header .navbar #nav-close {
-      display: block;
-      position: absolute;
-      top: 1rem;
-      right: 2rem;
-    }
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      display: none;
-    }
-    .to-top {
-        font-size:20px;
-        width:40px;
-        height:40px;
-    }  
-     
-  }
-
-@media (max-width: 450px) {
-    html {
-      font-size: 50%;
-    }
-}
-
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .wrapper {
     margin: 10vh 5vh 10vh 5vh;
   }
-
 }
-
-
-@media (max-width: 500px) {
-    .main {
-        width: 360px;
-        height: 480px;
-    }
-    
-    .blur {
-        height: 630px;
-    }
     /* .main .jaffna {
         position: absolute;
         top: 15px;
@@ -900,75 +761,63 @@ body {
 
 .main .Dima-Hasao {
     position: absolute;
-    top: 330px;
-    
+    top: 55%;
     right: 52%;
     left: 50%;
-   
 }
 
 .main .Karbi-Anglong {
   position: absolute;
-  top: 260px;
+  top: 43.33%;
   right: 52%;
   left: 56%;
- 
 }
-
-/* .main .jaffna{
-  position: absolute;
-        top: 150px;
-        right: 70%;
-        left: 30%;
-} */
 
 .main .Tinsukia {
   position: absolute;
-    top: 140px;
+    top: 23.33%;
     right: 65%;
     left: 86%;
 }
 
-
-
 .main .Jorhat {
     position: absolute;
-    top: 212px;
+    top: 35.33%;
     right: 50%;
     left: 68%;
 }
 
 .main .Golaghat {
     position: absolute;
-    top: 218px;
+    top: 36.33%;
     right: 50%;
     left: 62%;
 }
 
 .main .Kamrupa {
     position: absolute;
-    top: 270px;
+    top: 45%;
     right: 77%;
     left: 27%;
 }
 
 .main .Morigaon {
     position: absolute;
-    top: 248px;
+    top: 41.33%;
     right: 77%;
     left: 40%;
 }
 
 .main .Majuli {
     position: absolute;
-    top: 185px;
+    top: 30.83%;
     right: 50%;
     left: 68%;
 }
 
 .main .Bongaigaon {
     position: absolute;
-    top: 238px;
+    top: 39.66%;
     right: 61%;
     left: 16%;
 }
@@ -982,23 +831,17 @@ body {
  */
 
 .main {
-    position: absolute;
+    position: relative;
     display:block;
-    top: 80px;
-    /* left: 25vw;
-    right: 25vw; */
-    width: 700px;
-    height: 600px;
+    width: 90%;
+    max-width: 700px;
+    aspect-ratio: 7 / 6;
     background: url(../assets/Images/map-state-india_97886-4539.jpg);
     background-position: center center;
     background-size: cover;
     border-radius: 15px;
     box-shadow: 0 30px 50px #505050;
-    
-    
 }
-
-
 
 .align {
     width: 100vw;
@@ -1014,19 +857,16 @@ body {
     height: 30px;
 }
 
-
-
-
-
-/* .align .main .jaffna:hover {
-    
-} */
-
 .blur {
     width: 100vw;
-    height: 600px;
+    min-height: 600px;
+    padding: 50px 0;
     background: url(../assets/Images/assam\ map\ banner.jpg);
-    
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ------------------------------banner, sl map section ends ---------------------------*/
