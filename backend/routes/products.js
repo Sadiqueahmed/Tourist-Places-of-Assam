@@ -12,13 +12,25 @@ router.get('/', optionalAuth, async (req, res) => {
     let query = {};
     
     if (category) {
-      query.category = category;
+      const categoryObj = await Category.findOne({ name: category }).lean();
+      if (categoryObj) {
+        query.category_id = categoryObj._id;
+      } else {
+        // If category not found, return empty results
+        query.category_id = null;
+      }
     }
     
-    const products = await Product.find(query).sort({ created_at: -1 }).lean();
+    const productsData = await Product.find(query).sort({ created_at: -1 }).populate('category_id').lean();
+    const products = productsData.map(p => ({
+      ...p,
+      category: p.category_id ? p.category_id.name : null,
+      id: p._id
+    }));
 
     // Get unique categories for filter
-    const uniqueCategories = await Product.distinct('category');
+    const categoriesList = await Category.find().lean();
+    const uniqueCategories = categoriesList.map(c => c.name);
 
     res.render('products/index', {
       title: 'Traditional Products - Visit Assam',

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Place = require('../models/Place');
+const Category = require('../models/Category');
 const Review = require('../models/Review');
 const { optionalAuth } = require('../middleware/auth');
 
@@ -12,14 +13,24 @@ router.get('/', optionalAuth, async (req, res) => {
     let query = {};
     
     if (category) {
-      query.category = category;
+      const categoryObj = await Category.findOne({ name: category }).lean();
+      if (categoryObj) {
+        query.category_id = categoryObj._id;
+      } else {
+        query.category_id = null;
+      }
     }
     
     if (search) {
       query.name = { $regex: search, $options: 'i' };
     }
     
-    const places = await Place.find(query).sort({ rating: -1 }).lean();
+    const placesData = await Place.find(query).sort({ rating: -1 }).populate('category_id').lean();
+    const places = placesData.map(p => ({
+      ...p,
+      category: p.category_id ? p.category_id.name : null,
+      id: p._id
+    }));
 
     res.render('places/index', {
       title: 'Tourist Places - Visit Assam',
