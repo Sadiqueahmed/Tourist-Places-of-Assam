@@ -3,6 +3,8 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
+const MongoStore = require('connect-mongo').MongoStore;
+const helmet = require('helmet');
 require('dotenv').config();
 
 const connectDB = require('./config/db');
@@ -13,6 +15,7 @@ connectDB();
 const app = express();
 
 // Middleware
+app.use(helmet({ contentSecurityPolicy: false })); // Disabled CSP for now to allow external images and scripts easily
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
@@ -20,11 +23,15 @@ app.use(methodOverride('_method'));
 // Static files - serve from root assets directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Session configuration for production
+// Session configuration
 app.use(session({
-  secret: process.env.SESSION_SECRET || process.env.JWT_SECRET || 'your-secret-key-change-in-production',
+  secret: process.env.SESSION_SECRET || 'your-secret-key',
   resave: false,
   saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/tourist_assam',
+    collectionName: 'sessions'
+  }),
   cookie: { 
     secure: process.env.NODE_ENV === 'production',
     maxAge: 24 * 60 * 60 * 1000 // 24 hours

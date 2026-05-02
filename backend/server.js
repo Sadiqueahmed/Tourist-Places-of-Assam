@@ -3,6 +3,8 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
+const MongoStore = require('connect-mongo').MongoStore;
+const helmet = require('helmet');
 require('dotenv').config();
 
 const connectDB = require('./config/db');
@@ -14,6 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(helmet({ contentSecurityPolicy: false })); // Disabled CSP for now to allow external images and scripts easily
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
@@ -24,7 +27,11 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'your-secret-key',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // Set to true in production with HTTPS
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/tourist_assam',
+    collectionName: 'sessions'
+  }),
+  cookie: { secure: process.env.NODE_ENV === 'production' } // Set to true in production with HTTPS
 }));
 
 // Flash messages

@@ -7,17 +7,25 @@ const User = require('../models/User');
 const Review = require('../models/Review');
 const Category = require('../models/Category');
 const { authenticateToken, requireAdmin } = require('../middleware/auth');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 const path = require('path');
 
-// Configure multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'backend/public/uploads/');
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+// Configure multer-storage-cloudinary
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'visit_assam',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
   },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + Math.round(Math.random() * 1E9) + path.extname(file.originalname));
-  }
 });
 
 const upload = multer({ 
@@ -140,25 +148,27 @@ router.post('/places', upload.single('image'), async (req, res) => {
     
     let imageUrl = null;
     if (req.file) {
-      imageUrl = '/uploads/' + req.file.filename;
+      imageUrl = req.file.path; // Cloudinary returns URL in path
     }
 
-    const newProduct = new Product({
+    const newPlace = new Place({
       name,
       description,
-      price: parseFloat(price) || 0,
+      location,
       category_id: category || null,
+      rating: parseFloat(rating) || 0,
+      featured: featured === 'on',
       image_url: imageUrl
     });
     
-    await newProduct.save();
+    await newPlace.save();
 
-    req.flash('success_msg', 'Product added successfully!');
-    res.redirect('/admin/products');
+    req.flash('success_msg', 'Place added successfully!');
+    res.redirect('/admin/places');
   } catch (error) {
-    console.error('Create product error:', error);
-    req.flash('error_msg', 'Failed to add product');
-    res.redirect('/admin/products/add');
+    console.error('Create place error:', error);
+    req.flash('error_msg', 'Failed to add place');
+    res.redirect('/admin/places/add');
   }
 });
 
@@ -201,7 +211,7 @@ router.put('/products/:id', upload.single('image'), async (req, res) => {
     };
 
     if (req.file) {
-      updateData.image_url = '/uploads/' + req.file.filename;
+      updateData.image_url = req.file.path; // Cloudinary returns URL in path
     }
 
     await Product.findByIdAndUpdate(id, updateData);
