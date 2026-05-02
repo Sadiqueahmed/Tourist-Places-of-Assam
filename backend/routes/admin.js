@@ -172,7 +172,161 @@ router.post('/places', upload.single('image'), async (req, res) => {
   }
 });
 
+
+// Edit place form
+router.get('/places/:id/edit', async (req, res) => {
+  try {
+    const place = await Place.findById(req.params.id).lean();
+    if (!place) {
+      req.flash('error_msg', 'Place not found');
+      return res.redirect('/admin/places');
+    }
+    const categories = await Category.find().lean();
+    res.render('admin/place-form', { title: 'Edit Place', user: req.user, place, categories, action: 'edit' });
+  } catch (error) {
+    req.flash('error_msg', 'Error loading place');
+    res.redirect('/admin/places');
+  }
+});
+
+// Update place
+router.put('/places/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { name, description, location, category, rating, featured } = req.body;
+    let updateData = { name, description, location, category_id: category || null, rating: parseFloat(rating) || 0, featured: featured === 'on' };
+    if (req.file) updateData.image_url = req.file.path;
+    await Place.findByIdAndUpdate(req.params.id, updateData);
+    req.flash('success_msg', 'Place updated');
+    res.redirect('/admin/places');
+  } catch (error) {
+    req.flash('error_msg', 'Error updating place');
+    res.redirect('/admin/places');
+  }
+});
+
+// Delete place
+router.delete('/places/:id', async (req, res) => {
+  try {
+    await Place.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Place deleted');
+    res.redirect('/admin/places');
+  } catch (error) {
+    req.flash('error_msg', 'Error deleting place');
+    res.redirect('/admin/places');
+  }
+});
+
+// ==================== EVENTS MANAGEMENT ====================
+
+// List events
+router.get('/events', async (req, res) => {
+  try {
+    const events = await Event.find().sort({ date: 1 }).lean();
+    res.render('admin/events', { title: 'Manage Events', user: req.user, events });
+  } catch (error) {
+    req.flash('error_msg', 'Failed to load events');
+    res.render('admin/events', { title: 'Manage Events', user: req.user, events: [] });
+  }
+});
+
+// Add event form
+router.get('/events/add', async (req, res) => {
+  res.render('admin/event-form', { title: 'Add Event', user: req.user, event: null, action: 'add' });
+});
+
+// Create event
+router.post('/events', upload.single('image'), async (req, res) => {
+  try {
+    const { title, description, location, date } = req.body;
+    let imageUrl = null;
+    if (req.file) imageUrl = req.file.path;
+    const newEvent = new Event({ title, description, location, date, image_url: imageUrl });
+    await newEvent.save();
+    req.flash('success_msg', 'Event added');
+    res.redirect('/admin/events');
+  } catch (error) {
+    req.flash('error_msg', 'Error adding event');
+    res.redirect('/admin/events/add');
+  }
+});
+
+// Edit event form
+router.get('/events/:id/edit', async (req, res) => {
+  try {
+    const event = await Event.findById(req.params.id).lean();
+    if (!event) return res.redirect('/admin/events');
+    res.render('admin/event-form', { title: 'Edit Event', user: req.user, event, action: 'edit' });
+  } catch (error) {
+    res.redirect('/admin/events');
+  }
+});
+
+// Update event
+router.put('/events/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { title, description, location, date } = req.body;
+    let updateData = { title, description, location, date };
+    if (req.file) updateData.image_url = req.file.path;
+    await Event.findByIdAndUpdate(req.params.id, updateData);
+    req.flash('success_msg', 'Event updated');
+    res.redirect('/admin/events');
+  } catch (error) {
+    res.redirect('/admin/events');
+  }
+});
+
+// Delete event
+router.delete('/events/:id', async (req, res) => {
+  try {
+    await Event.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Event deleted');
+    res.redirect('/admin/events');
+  } catch (error) {
+    res.redirect('/admin/events');
+  }
+});
+
+// ==================== PRODUCTS MANAGEMENT ====================
+
+// List products
+router.get('/products', async (req, res) => {
+  try {
+    const products = await Product.find().sort({ created_at: -1 }).lean();
+    res.render('admin/products', { title: 'Manage Products', user: req.user, products });
+  } catch (error) {
+    req.flash('error_msg', 'Failed to load products');
+    res.render('admin/products', { title: 'Manage Products', user: req.user, products: [] });
+  }
+});
+
+// Add product form
+router.get('/products/add', async (req, res) => {
+  try {
+    const categories = await Category.find().lean();
+    res.render('admin/product-form', { title: 'Add Product', user: req.user, product: null, categories, action: 'add' });
+  } catch (error) {
+    res.render('admin/product-form', { title: 'Add Product', user: req.user, product: null, categories: [], action: 'add' });
+  }
+});
+
+// Create product
+router.post('/products', upload.single('image'), async (req, res) => {
+  try {
+    const { name, description, price, category } = req.body;
+    let imageUrl = null;
+    if (req.file) imageUrl = req.file.path;
+    const newProduct = new Product({ name, description, price: parseFloat(price) || 0, category_id: category || null, image_url: imageUrl });
+    await newProduct.save();
+    req.flash('success_msg', 'Product added');
+    res.redirect('/admin/products');
+  } catch (error) {
+    req.flash('error_msg', 'Error adding product');
+    res.redirect('/admin/products/add');
+  }
+});
+
 // Edit product form
+
 router.get('/products/:id/edit', async (req, res) => {
   try {
     const { id } = req.params;
